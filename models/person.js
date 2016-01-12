@@ -13,17 +13,4 @@ let personSchema = new Schema({
 })
 
 
-let Person = mongoose.model('Person', personSchema);
-
-
-
-
-
-
-// person.phone = body.results[0].phone_number;
-// person.line_type = body.results[0].line_type;
-// person.valid = body.results[0].is_valid;
-// person.is_connected = body.results[0].is_connected;
-// person.name = body.results[0].belongs_to[0].best_name;
-// person.gender = body.results[0].belongs_to[0].gender;
-// person.location =body.results[0].belongs_to[0].best_location.address;
+module.exports = mongoose.model('Person', personSchema);

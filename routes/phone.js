@@ -2,6 +2,7 @@
 let express = require('express');
 let router = express.Router();
 let request = require('request');
+let Person = require('../models/person');
 
 
 
@@ -19,13 +20,19 @@ router.post('/:phone',function (req, res, next) {
     person.name = body.results[0].belongs_to[0].best_name;
     person.gender = body.results[0].belongs_to[0].gender;
     person.location =body.results[0].belongs_to[0].best_location.address;
-    person = JSON.stringify(person)
+    let newPerson = new Person(person);
 
-   res.status(err ? 400:200).send(err || person)
-
+    newPerson.save(function (err, savedPerson) {
+      res.status(err ? 400:200).send(err || person)
+    })
  })
 })
 
+router.get('/', function (req, res, next) {
+  Person.find({},function (err, people) {
+    res.status(err ? 400:200)
+  })
 
+})
 
 module.exports = router;

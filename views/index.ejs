@@ -4,10 +4,60 @@
     <title><%= title %></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="javascripts/app.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>An example API system for WhitePages Pro using Node.JS </p>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="whitePageApp">
+
+<div class="container" ng-controller="MainCtrl">
+  <h2>Enter A Phone Number</h2>
+  <p>Please use 5555555555 format, and a 10 digit number:</p>
+  <input type="text" ng-model="phoneNumber" id="phoneNumber"> <button ng-click="searchNumber(phoneNumber)" class="btn btn-success">Get Info </button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Connected</th>
+        <th>Line Type</th>
+        <th>Valid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people track by $index">
+        <td>{{person.name}}</td>
+        <td>{{person.phone}}</td>
+        <td>{{person.location}}</td>
+        <td>{{person.gender}}</td>
+        <td>{{person.is_connected}}</td>
+        <td>{{person.line_type}}</td>
+        <td>{{person.valid}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+
+
   </body>
 </html>

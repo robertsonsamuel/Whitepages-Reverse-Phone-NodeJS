@@ -4,7 +4,7 @@ let Schema = mongoose.Schema;
 
 let personSchema = new Schema({
   name:{ type: String},
-  address: {type: String},
+  location: {type: String},
   gender: {type: String},
   phone: { type: String},
   line_type: {type: String },
